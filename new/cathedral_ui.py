@@ -81,7 +81,7 @@ class GridSettingsPanel(bpy.types.Panel):
     bl_idname = "PT_GridSettings"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'Tool'
+    bl_category = 'Boardgasm'
 
     def draw(self, context):
         layout = self.layout

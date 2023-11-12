@@ -49,7 +49,7 @@ class ShrinkCubesPanel(bpy.types.Panel):
     bl_idname = "PT_ShrinkCubesPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'Tool'
+    bl_category = 'Boardgasm'
     bl_context = "objectmode"
 
     def draw(self, context):
