@@ -52,7 +52,7 @@ def create_grid(rows, columns, cube_size_x, cube_size_y, cube_size_z, margin, ba
     cell_radius_radians = math.radians(cell_radius_degrees)
 
     # Create the base object of the grid
-    base_obj = create_base(rows, columns, cube_size_x, cube_size_y, cube_size_z, margin, base_height, gap)
+    create_base(rows, columns, cube_size_x, cube_size_y, cube_size_z, margin, base_height, gap)
 
     # Iterate through the rows and columns to create individual cubes
     for i in range(rows):
