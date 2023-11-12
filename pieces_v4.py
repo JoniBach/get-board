@@ -13,7 +13,6 @@ def create_box_around(selected_object, box_margin, box_height):
         # Calculate the new box's location to surround the selected object
         new_box_location = selected_object.location - Vector((0, 0, box_height/2 - new_box_dimensions.z/2))
 
-
         bpy.ops.mesh.primitive_cube_add(size=1, location=new_box_location)  # Convert mm to meters
         new_box = bpy.context.active_object
 
@@ -21,6 +20,26 @@ def create_box_around(selected_object, box_margin, box_height):
         new_box.scale.x = new_box_dimensions.x
         new_box.scale.y = new_box_dimensions.y
         new_box.scale.z = new_box_dimensions.z
+
+        # Apply boolean difference
+        apply_boolean_difference(new_box.name, selected_object.name)
+
+# Function to apply boolean difference between two objects
+def apply_boolean_difference(parent_name, child_name):
+    context = bpy.context
+    scene = context.scene
+    parent = scene.objects.get(parent_name)
+    child = scene.objects.get(child_name)
+
+    if parent and child:
+        bool_modifier = parent.modifiers.new(name='bool_modifier', type='BOOLEAN')
+        bool_modifier.object = child
+        bool_modifier.operation = 'DIFFERENCE'
+        bpy.ops.object.modifier_apply(
+            {"object": parent},
+            modifier=bool_modifier.name
+        )
+        # bpy.data.objects.remove(child)
 
 # Function to select the top face of the active object in Edit Mode
 def select_top_face_in_edit_mode():
