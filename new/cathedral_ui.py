@@ -89,12 +89,14 @@ class GridSettingsPanel(bpy.types.Panel):
         scene = context.scene
         layout.prop(scene, "grid_rows")
         layout.prop(scene, "grid_columns")
-        layout.prop(scene, "cube_size_x")
-        layout.prop(scene, "cube_size_y")
         layout.prop(scene, "cube_size_z")
         layout.prop(scene, "margin")
-        layout.prop(scene, "base_height")
-        layout.prop(scene, "cell_radius_degrees")
+        
+        # not working as intended - defaults function fine
+        # layout.prop(scene, "cell_radius_degrees")
+        # layout.prop(scene, "base_height")
+        # layout.prop(scene, "cube_size_x")
+        # layout.prop(scene, "cube_size_y")
 
         layout.operator("object.create_grid")
 
@@ -116,6 +118,7 @@ def register():
     bpy.types.Scene.cube_size_x = bpy.props.FloatProperty(name="Cube Size X", default=10.0)
     bpy.types.Scene.cube_size_y = bpy.props.FloatProperty(name="Cube Size Y", default=10.0)
     bpy.types.Scene.cube_size_z = bpy.props.FloatProperty(name="Cube Size Z", default=1.0)
+    bpy.types.Scene.cube_size = bpy.props.FloatProperty(name="Cube Size", default=10.0)
     bpy.types.Scene.margin = bpy.props.FloatProperty(name="Margin", default=1.0)
     bpy.types.Scene.base_height = bpy.props.FloatProperty(name="Base Height", default=1.0)
     bpy.types.Scene.cell_radius_degrees = bpy.props.FloatProperty(name="Cell Radius (Degrees)", default=0)
@@ -128,6 +131,7 @@ def unregister():
     del bpy.types.Scene.cube_size_x
     del bpy.types.Scene.cube_size_y
     del bpy.types.Scene.cube_size_z
+    del bpy.types.Scene.cube_size
     del bpy.types.Scene.margin
     del bpy.types.Scene.base_height
     del bpy.types.Scene.cell_radius_degrees

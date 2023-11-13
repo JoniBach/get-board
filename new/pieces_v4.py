@@ -99,8 +99,8 @@ class CreateBoxPanel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
 
-        # Add a field for height input
-        layout.prop(context.scene, "box_height", text="Height (mm)")
+        # Add a field for height input (currently broken)
+        # layout.prop(context.scene, "box_height", text="Height (mm)")
 
         # Add a field for margin input
         layout.prop(context.scene, "box_margin", text="Margin (mm)")
