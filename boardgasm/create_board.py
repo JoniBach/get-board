@@ -89,7 +89,6 @@ class GridSettingsPanel(bpy.types.Panel):
         scene = context.scene
         layout.prop(scene, "grid_rows")
         layout.prop(scene, "grid_columns")
-        layout.prop(scene, "cube_size_z")
         layout.prop(scene, "margin")
         
         # not working as intended - defaults function fine
@@ -97,6 +96,7 @@ class GridSettingsPanel(bpy.types.Panel):
         # layout.prop(scene, "base_height")
         # layout.prop(scene, "cube_size_x")
         # layout.prop(scene, "cube_size_y")
+        # layout.prop(scene, "cube_size_z")
 
         layout.operator("object.create_grid")
 
